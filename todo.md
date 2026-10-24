@@ -47,6 +47,8 @@ bin/rails generate model PassengerProfile 'dob:date!' 'ssn:string!' 'first_name:
 # References Migration Code
 ```ruby
 # Flight -> Airport
+# BASH -> bin/rails generate migration AddSourceAirportToFlights source_airport:string!
+# BASH -> bin/rails generate migration AddDestinationAirportToFlights destination_airport:string!
 # BASH ->  bin/rails generate migration ChangeTableFlights
 add_foreign_key :flights, :airports, column: :source_airport
 add_foreign_key :flights, :airports, column: :destination_airport

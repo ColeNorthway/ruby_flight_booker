@@ -1,6 +1,4 @@
 class Flight < ApplicationRecord
-  validates :source_airport, presence: true
-  validates :destination_airport, presence: true
   validates :departure_time, presence: true
   validates :arrival_time, presence: true
   validates :duration_minutes, presence: true
@@ -10,6 +8,6 @@ class Flight < ApplicationRecord
   validates_associated :dest_port, required: true
 
   has_and_belongs_to_many :passengers
-  belongs_to :source_port, class_name: "Airport"
-  belongs_to :dest_port, class_name: "Airport"
+  belongs_to :source_port, class_name: "Airport", foreign_key: "source_airport"
+  belongs_to :dest_port, class_name: "Airport", foreign_key: "destination_airport"
 end

@@ -9,10 +9,9 @@
 - [x] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
 - [x] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
 - [x] Flesh out associations in models
-- [ ] Flesh our required fields
-- [] Set up associations so you can ask Flight.first.departure_airport, Flight.first.arrival_airport and get back Airport objects.
-  - [ ] Same for Airport.first.departing_flights and Airport.first.arriving_flights, which should return a list of Flight objects.
+- [x] Flesh our required fields
 - [ ] Seed your database with flights.
+- [ ] Add a callback before save for flight that if the delay time is null make it 0
 - [ ] Install bcrypt gem and hash ssn
 - [ ] You will search and view results in the same page. Set up your FlightsController and routes to make the Index page (/flights) the root route.
 - [ ] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.

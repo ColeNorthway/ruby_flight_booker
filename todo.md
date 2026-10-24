@@ -22,5 +22,14 @@
 bin/rails generate model Airport 'city:string!' 'country:string!' 'name:string!' 'code:string!'
 
 # Flights
-bin/rails generate model Flight 'departure_time'
+bin/rails generate model Flight 'departure_time:date!' 'arrival_time:date!' 'duration_minutes:integer!' 'delay_time_minutes:integer!'
+
+# Passenger
+bin/rails generate model Passenger
+
+# Passenger Profile
+bin/rails generate model PassengerProfile 'dob:date!' 'ssn:string!' 'first_name:string!' 'last_name:string!' 'gender:boolean!'
+
+# Payment Info
+???
 ```

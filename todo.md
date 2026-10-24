@@ -26,6 +26,9 @@ bin/rails generate model Airport 'city:string!' 'country:string!' 'name:string!'
 # Flights
 bin/rails generate model Flight 'departure_time:date!' 'arrival_time:date!' 'duration_minutes:integer!' 'delay_time_minutes:integer!'
 
+# PassengerToFlight
+bin/rails generate model PassengerToFlight flight:references passenger:references
+
 # Passenger
 bin/rails generate model Passenger
 

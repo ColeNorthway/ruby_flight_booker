@@ -6,6 +6,7 @@
 
 - [ ] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
 - [ ] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
+- [ ] Validate all uniq database entries and things that can be null
 - [ ] Set up associations so you can ask Flight.first.departure_airport, Flight.first.arrival_airport and get back Airport objects.
   - [ ] Same for Airport.first.departing_flights and Airport.first.arriving_flights, which should return a list of Flight objects.
 - [ ] Seed your database with flights.
@@ -33,3 +34,6 @@ bin/rails generate model PassengerProfile 'dob:date!' 'ssn:string!' 'first_name:
 # Payment Info
 ???
 ```
+
+# Airport Codes
++ https://airportcod.es/airport/

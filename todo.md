@@ -28,7 +28,7 @@ bin/rails generate model Airport 'city:string!' 'country:string!' 'name:string!'
 bin/rails generate model Flight 'departure_time:date!' 'arrival_time:date!' 'duration_minutes:integer!' 'delay_time_minutes:integer!'
 
 # PassengerToFlight
-bin/rails generate model PassengerToFlight flight:references passenger:references
+bin/rails generate model FlightsPassengers flight:references passenger:references
 # Rollback for primary key
 #  - Run below
 #  - Rerun above
@@ -56,17 +56,15 @@ add_foreign_key :flights, :airports, column: :destination_airport
 #  - This fucked up bc composite primary key
 #  - Drop table -> rails generate migration DropPassengerToFlight
 #  - Add table -> rails generate migration CreatePassengerToFlight
-class CreateProducts < ActiveRecord::Migration[8.1]
+class CreatePassengerToFlight < ActiveRecord::Migration[8.1]
   def change
-    create_table :passenger_to_flight, primary_key: [:passenger_id, :flight_id] do |t|
-      t.integer :passenger_id
-      t.integer :flight_id
+    create_join_table :passengers, :flights do |t|
+      t.index :flight_id
+      t.index :passenger_id
     end
   end
-  
-  add_foreign_key :passenger_to_flight, :passengers, column: :passenger_id
-  add_foreign_key :passenger_to_flight, :flights, column: :flight_id
 end
+
 
 # PassengerProfile -> Passenger
 # BASH -> bin/rails generate migration AddPassengerRefToPassengerProfile passenger:references:uniq

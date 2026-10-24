@@ -10,7 +10,7 @@
 - [x] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
 - [x] Flesh out associations in models
 - [x] Flesh our required fields
-- [ ] Seed your database with flights.
+- [x] Seed your database with flights.
 - [ ] Add a callback before save for flight that if the delay time is null make it 0
 - [ ] Install bcrypt gem and hash ssn
 - [ ] You will search and view results in the same page. Set up your FlightsController and routes to make the Index page (/flights) the root route.

@@ -10,4 +10,8 @@ class Flight < ApplicationRecord
   has_and_belongs_to_many :passengers
   belongs_to :source_port, class_name: "Airport", foreign_key: "source_airport"
   belongs_to :dest_port, class_name: "Airport", foreign_key: "destination_airport"
+
+  before_save do |flight|
+    delay_time_minutes = 0 if  delay_time_minutes.nil?
+  end
 end

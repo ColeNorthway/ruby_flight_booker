@@ -47,7 +47,8 @@ add_foreign_key :flights, :airports, column: :source_airport
 add_foreign_key :flights, :airports, column: :destination_airport
 
 # Flight <-> Passenger
+bin/rails generate model PassengerToFlight flight:references passenger:references
 
 # PassengerProfile -> Passenger
-# BASH -> bin/rails generate migration AddUsersRefToUserLoginData users:references:uniq
+# BASH -> bin/rails generate migration AddPassengerRefToPassengerProfile passenger:references:uniq
 ```

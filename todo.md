@@ -4,9 +4,9 @@
 + This requires relatively vanilla forms that happen to be prepopulated with collections of data.
 + Working with dates will cover a bit of new ground for you.
 
-- [ ] Set up relations in database with migration cli commands
-- [ ] Validate all uniq database entries and things that can be null
-- [ ] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
+- [x] Set up relations in database with migration cli commands
+- [x] Validate all uniq database entries and things that can be null
+- [x] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
 - [ ] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
 - [ ] Set up associations so you can ask Flight.first.departure_airport, Flight.first.arrival_airport and get back Airport objects.
   - [ ] Same for Airport.first.departing_flights and Airport.first.arriving_flights, which should return a list of Flight objects.

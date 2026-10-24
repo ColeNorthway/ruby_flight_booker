@@ -5,12 +5,13 @@
 + Working with dates will cover a bit of new ground for you.
 
 - [ ] Set up relations in database with migration cli commands
-- [] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
-- [ ] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
 - [ ] Validate all uniq database entries and things that can be null
+- [ ] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
+- [ ] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
 - [ ] Set up associations so you can ask Flight.first.departure_airport, Flight.first.arrival_airport and get back Airport objects.
   - [ ] Same for Airport.first.departing_flights and Airport.first.arriving_flights, which should return a list of Flight objects.
 - [ ] Seed your database with flights.
+- [ ] Install bcrypt gem and hash ssn
 - [ ] You will search and view results in the same page. Set up your FlightsController and routes to make the Index page (/flights) the root route.
 - [ ] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
 - [ ] Add the four dropdown menus – a list of departure airports, arrival airports, number of passengers (1-4), and a date dropdown for the flight date.
@@ -28,6 +29,10 @@ bin/rails generate model Flight 'departure_time:date!' 'arrival_time:date!' 'dur
 
 # PassengerToFlight
 bin/rails generate model PassengerToFlight flight:references passenger:references
+# Rollback for primary key
+#  - Run below
+#  - Rerun above
+#  - Edit primary key primary_key: [:passenger_id, :flight_id]
 
 # Passenger
 bin/rails generate model Passenger
@@ -47,7 +52,21 @@ add_foreign_key :flights, :airports, column: :source_airport
 add_foreign_key :flights, :airports, column: :destination_airport
 
 # Flight <-> Passenger
-bin/rails generate model PassengerToFlight flight:references passenger:references
+#  - BASH -> bin/rails generate model PassengerToFlight flight:references passenger:references
+#  - This fucked up bc composite primary key
+#  - Drop table -> rails generate migration DropPassengerToFlight
+#  - Add table -> rails generate migration CreatePassengerToFlight
+class CreateProducts < ActiveRecord::Migration[8.1]
+  def change
+    create_table :passenger_to_flight, primary_key: [:passenger_id, :flight_id] do |t|
+      t.integer :passenger_id
+      t.integer :flight_id
+    end
+  end
+  
+  add_foreign_key :passenger_to_flight, :passengers, column: :passenger_id
+  add_foreign_key :passenger_to_flight, :flights, column: :flight_id
+end
 
 # PassengerProfile -> Passenger
 # BASH -> bin/rails generate migration AddPassengerRefToPassengerProfile passenger:references:uniq

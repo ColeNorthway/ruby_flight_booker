@@ -6,6 +6,9 @@ class Flight < ApplicationRecord
   validates :duration_minutes, presence: true
   validates :delay_time_minutes, presence: true
 
+  validates_associated :source_port, required: true
+  validates_associated :dest_port, required: true
+
   has_and_belongs_to_many :passengers
   belongs_to :source_port, class_name: "Airport"
   belongs_to :dest_port, class_name: "Airport"

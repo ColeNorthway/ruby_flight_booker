@@ -10,5 +10,8 @@
 <p><span class="flight-key">Delay Time Minutes: </span><%= flight.delay_time_minutes %>min</p>
 
 <% if params[:action] == 'index' %>
+  <%= link_to "Show", flight_path(flight.id) %>
+  <br><br>
+<% else %>
   <br>
 <% end %>

@@ -18,7 +18,7 @@
   - [x] Get the css right
   - [x] Get the spacing right
   - [x] Commit
-- [ ] Figure out how to calculate delay as part of the arrival time
+- [x] Figure out how to calculate delay as part of the arrival time
 - [ ] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
 - [ ] Add the four dropdown menus – a list of departure airports, arrival airports, number of passengers (1-4), and a date dropdown for the flight date.
   - [ ] The date dropdown should only include dates that have existing flights.

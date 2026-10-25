@@ -24,6 +24,9 @@
   </head>
 
   <style>
+    h1 {
+        color: lightseagreen;
+    }
     h4 {
         color: darkslateblue;
     }
@@ -34,6 +37,11 @@
   </style>
 
   <body>
+    <%# Display Flash Messages Universally %>
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

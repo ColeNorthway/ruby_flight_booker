@@ -1,0 +1,14 @@
+<h4><%= flight.source_port.city %> to <%= flight.dest_port.city %></h4>
+<p><span class="flight-key">Source: </span><%= flight.source_port.city %> in <%= flight.source_port.country%></p>
+<p><span class="flight-key">Source Airport: </span><%= flight.source_port.name %></p>
+<p><span class="flight-key">Destination: </span><%= flight.dest_port.city %> in <%= flight.dest_port.country %></p>
+<p><span class="flight-key">Destination Airport: </span><%= flight.dest_port.name %></p>
+<p><span class="flight-key">Departs: </span><%= flight.departure_time %></p>
+<p><span class="flight-key">Arrives: </span><%= flight.arrival_time %></p>
+<p><span class="flight-key">Expected Duration: </span><%= (flight.duration_minutes).fdiv(60).round(2) %>hr</p>
+<p><span class="flight-key">Duration: </span><%= (flight.duration_minutes + flight.delay_time_minutes).fdiv(60).round(2) %>hr</p>
+<p><span class="flight-key">Delay Time Minutes: </span><%= flight.delay_time_minutes %>min</p>
+
+<% if params[:action] == 'index' %>
+  <br>
+<% end %>

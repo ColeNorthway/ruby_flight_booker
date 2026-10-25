@@ -13,9 +13,12 @@
 - [x] Seed your database with flights.
 - [x] Add a callback before save for flight that if the delay time is null make it 0
 - [x] Install bcrypt gem and hash ssn
-- [ ] Add routes
-- [ ] You will search and view results in the same page.
-  - Set up your FlightsController and routes to make the Index page (/flights) the root route.
+- [x] Add routes for flights
+- [x] Set up your FlightsController and routes to make the Index page (/flights) the root route.
+  - [x] Get the css right
+  - [x] Get the spacing right
+  - [x] Commit
+- [ ] Figure out how to calculate delay as part of the arrival time
 - [ ] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
 - [ ] Add the four dropdown menus – a list of departure airports, arrival airports, number of passengers (1-4), and a date dropdown for the flight date.
   - [ ] The date dropdown should only include dates that have existing flights.
@@ -76,7 +79,7 @@ end
 ```
 
 # Routes
-1) First we need to add *routes*
+1) First we need to add *flights*
    + Show flights, show a flight, no editing, no deleting, no creating
-   + Only index and show
-   + Add via `bin/rails generate controller Flights index show --skip-routes`
+       + Only index and show
+       + Add via `bin/rails generate controller Flights index show --skip-routes`

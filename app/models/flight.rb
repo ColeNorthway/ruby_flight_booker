@@ -14,4 +14,15 @@ class Flight < ApplicationRecord
   before_save do |flight|
     flight.delay_time_minutes = 0 if  flight.delay_time_minutes.nil?
   end
+
+  def self.search(search)
+    if search.present?
+      joins(:source_port, :dest_port).where(
+        "airports.city LIKE :q OR dest_ports_flights.city LIKE :q",
+        q: "%#{search}%"
+      )
+    else
+      all
+    end
+  end
 end

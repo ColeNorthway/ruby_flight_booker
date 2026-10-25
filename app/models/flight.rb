@@ -12,6 +12,6 @@ class Flight < ApplicationRecord
   belongs_to :dest_port, class_name: "Airport", foreign_key: "destination_airport"
 
   before_save do |flight|
-    delay_time_minutes = 0 if  delay_time_minutes.nil?
+    flight.delay_time_minutes = 0 if  flight.delay_time_minutes.nil?
   end
 end

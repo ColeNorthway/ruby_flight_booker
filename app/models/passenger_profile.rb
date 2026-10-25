@@ -6,4 +6,8 @@ class PassengerProfile < ApplicationRecord
   validates :gender, presence: true
 
   belongs_to :passenger
+
+  before_create do |profile|
+    profile.ssn = BCrypt::Password.create(profile.ssn) unless profile.ssn.nil?
+  end
 end

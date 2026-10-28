@@ -19,8 +19,12 @@
   - [x] Get the spacing right
   - [x] Commit
 - [x] Figure out how to calculate delay as part of the arrival time
-- [ ] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
-- [ ] Add the four dropdown menus – a list of departure airports, arrival airports, number of passengers (1-4), and a date dropdown for the flight date.
+- [x] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
+- [ ] Add the four dropdown menus
+  - [ ] Dest
+  - [ ] Source
+  - [ ] Departure Time
+  - [ ] Arrival Time
   - [ ] The date dropdown should only include dates that have existing flights.
   - [ ] Don’t worry about restricting the contents of the airport dropdowns – you’d normally use JavaScript – so just allow the user to select any airport.
   - [ ] See this Stack Overflow post on formatting dates in dropdown lists, this short Stack Overflow post on selecting months/years and the Rails DateHelper API Docs for some help with creating Date selects. 

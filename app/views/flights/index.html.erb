@@ -2,8 +2,12 @@
 
 <%= form_tag flights_path, method: 'get' do %>
   <p>
-    <%= text_field_tag :search %>
+    <%= text_field_tag :flight_name %>
     <%= submit_tag "Search", name: nil %>
+    Source City: <%= select_tag(:source_city, options_for_select(@source_cities)) %>
+    Destination City: <%= select_tag(:dest_city, options_for_select(@dest_cities)) %>
+    Arrival Time: <%= select_tag(:arrival_time, options_for_select(@arrival_dates)) %>
+    Departure Time: <%= select_tag(:departure_time, options_for_select(@departure_dates)) %>
   </p>
 <% end %>
 

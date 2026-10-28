@@ -15,14 +15,25 @@ class Flight < ApplicationRecord
     flight.delay_time_minutes = 0 if  flight.delay_time_minutes.nil?
   end
 
-  def self.search(search)
-    if search.present?
+  def self.search(params)
+    if self.args_present?(params)
       joins(:source_port, :dest_port).where(
         "airports.city LIKE :q OR dest_ports_flights.city LIKE :q",
-        q: "%#{search}%"
+        q: "%#{params[:flight_name]}%"
       )
     else
       all
     end
   end
+
+  private
+
+  def self.args_present?(params)
+    if [ params[:source_city], params[:dest_city], params[:arrival_time], params[:departure_time] ].all?(-1)
+       && params[:flight_name].nil?
+      return false
+    end
+    true
+  end
+
 end

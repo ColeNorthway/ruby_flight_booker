@@ -75,16 +75,17 @@ class Flight < ApplicationRecord
   # ~~~MAPPING~~~
 
   def self.remap_args_to_attrib(params, attrib_map)
-    params[:source_city]    = attrib_map[params[:source_city]]
-    params[:dest_city]      = attrib_map[params[:dest_city]]
-    params[:arrival_time]   = attrib_map[params[:arrival_time]]
-    params[:departure_time] = attrib_map[params[:departure_time]]
+    params[:source_city]    = attrib_map[:source_cities][params[:source_city]]
+    params[:dest_city]      = attrib_map[:dest_cities][params[:dest_city]]
+    params[:arrival_time]   = attrib_map[:arrival_dates][params[:arrival_time]]
+    params[:departure_time] = attrib_map[:departure_dates][params[:departure_time]]
   end
 
   # ~~~GROUPING~~~
 
   def self.flight_name_filter(params)
     return [] if params[:flight_name].nil?
+                 || params[:flight_name].empty?
 
     joins(:source_port, :dest_port).where(
       "airports.city LIKE :q OR dest_ports_flights.city LIKE :q",
@@ -94,25 +95,30 @@ class Flight < ApplicationRecord
 
   def self.source_city_filter(params)
     return [] if params[:source_city].nil?
-    joins(:source_port).where(source_airport: { city: params[:source_city] }).distinct
+                 || params[:source_city].empty?
+    joins(:source_port).where(airports: { city: params[:source_city] }).distinct
   end
 
   def self.dest_city_filter(params)
     return [] if params[:dest_city].nil?
-    joins(:dest_port).where(destination_airport: { city: params[:dest_city] }).distinct
+                 || params[:dest_city].empty?
+    joins(:dest_port).where(airports: { city: params[:dest_city] }).distinct
   end
 
   def self.arrival_time_filter(params)
     return [] if params[:arrival_time].nil?
+                 || params[:arrival_time].empty?
     where(arrival_time: params[:arrival_time])
   end
 
   def self.departure_time_filter(params)
     return [] if params[:departure_time].nil?
+                  || params[:departure_time].empty?
     where(departure_time: params[:departure_time])
   end
 
   def self.filter_groups(*groups)
+    groups.reject! { |arr| arr.empty? }
     groups.reduce([]) do |acc, arr_x|
       arr_x.each do |f|
         acc << f if groups.all? do |arr_y|

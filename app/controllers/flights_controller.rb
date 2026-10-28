@@ -43,17 +43,21 @@ class FlightsController < ApplicationController
     end
   end
 
-  def map_all_attrib_arr(*attrib_maps)
-    attrib_maps.map do |a|
-      attrib_arr_to_map(a)
-    end
+  def map_all_attrib_arr(source_cities, dest_cities, departure_dates, arrival_dates)
+    {
+      source_cities: attrib_arr_to_map(source_cities),
+      dest_cities: attrib_arr_to_map(dest_cities),
+      departure_dates: attrib_arr_to_map(departure_dates),
+      arrival_dates: attrib_arr_to_map(arrival_dates)
+    }
   end
 
   def attrib_arr_to_map(attrib_arr)
     attrib_index = 0
     index_index = 1
-    attrib_arr.map do |a|
-      { a[index_index] => a[attrib_index] }
+    attrib_arr.reduce({}) do |map, a|
+      map[a[index_index]] = a[attrib_index]
+      map
     end
   end
 end

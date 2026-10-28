@@ -30,6 +30,8 @@
   - [x] Next make up all the queries for what we want to do
   - [x] Finally we need to map the actual indexes the user chose that way we can actually retrieve the objects
   - [ ] Test accuracy of each filter and debug if inaccurate
+    - Ok first check the input present and all others not
+    - Next check others accuracy starting with city then the date
 
 # Models CLI Creation
 ```bash

@@ -32,12 +32,20 @@ class Flight < ApplicationRecord
 
   def self.args_present?(params)
     return false if self.defaults?(params)
+    return false if self.nilled?(params)
     true
   end
 
   def self.defaults?(params)
     if [ params[:source_city], params[:dest_city], params[:arrival_time], params[:departure_time] ].all?(-1)
       && params[:flight_name].empty?
+      return true
+    end
+    false
+  end
+
+  def self.nilled?(params)
+    if [ params[:source_city], params[:dest_city], params[:arrival_time], params[:departure_time], params[:flight_name] ].all?(nil)
       return true
     end
     false

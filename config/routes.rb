@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   # Session routes
   resource :sessions, only: [ :new, :create, :destroy ]
+
+  # User routes
+  resource :users, except: [ :show, :index  ]
 end

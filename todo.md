@@ -1,10 +1,24 @@
 # Search
-+ For the first screen, you will be creating 4 dropdown menus that will allow users to search for...
-  + Available flights - departure airport, arrival airport, date, and number of passengers.
-+ This requires relatively vanilla forms that happen to be prepopulated with collections of data.
-+ Working with dates will cover a bit of new ground for you.
++ Ok next we will have to create a booking between a user and a flight
++ This requires a few things to be in place
+  + User object to map with the flight
+    + This requires a session and we need to get authentication before we even do this
+  + Flight object to map with the user
+    + This is literally the flight that we already have loaded!
 
+- [ ] Set up basic authentication
+  - [ ] We need to have a sign in
+  - [ ] We need to have a log in
+  - [ ] We need to have a log out
+  - [ ] We need to have an edit profile button
+  - [ ] Put everything in a flexbox with the title
+    - [ ] Push the title to the left and the buttons to the right
 - [ ] Set up button for selection on user
+  - [ ] If the user isn't logged in we hide the book button
+  - [ ] If the user isn't logged in we hide logout
+  - [ ] If the user isn't logged in we hide edit profile
+  - [ ] If the user isn't logged in we hide edit profile
+  - [ ] If the user isn't logged in we will display *login to book!*
 
 # Models CLI Creation
 ```bash

@@ -25,9 +25,8 @@
   - [ ] Source
   - [ ] Departure Time
   - [ ] Arrival Time
-  - [ ] The date dropdown should only include dates that have existing flights.
-  - [ ] Don’t worry about restricting the contents of the airport dropdowns – you’d normally use JavaScript – so just allow the user to select any airport.
-  - [ ] See this Stack Overflow post on formatting dates in dropdown lists, this short Stack Overflow post on selecting months/years and the Rails DateHelper API Docs for some help with creating Date selects. 
+  - [ ] Check if any filters are there at all and if not run it
+  - [ ] So first we need to && the filters
 
 # Models CLI Creation
 ```bash

@@ -35,15 +35,15 @@ class FlightsController < ApplicationController
     end
   end
 
-  def process_search_params(source_cities, dest_cities, arrival_times, departure_times)
-    {
-      flight_name: params[:flight_name],
-      source_city: params[:source_city],
-      dest_city: params[:dest_city],
-      departure_date: params[:arrival_time],
-      arrival_date: params[:departure_time]
-    }
-  end
+  # def process_search_params
+  #   {
+  #     flight_name: params[:flight_name],
+  #     source_city: params[:source_city],
+  #     dest_city: params[:dest_city],
+  #     departure_date: params[:arrival_time],
+  #     arrival_date: params[:departure_time]
+  #   }
+  # end
 
   def map_param_to_val()
 

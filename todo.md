@@ -25,8 +25,11 @@
   - [ ] Source
   - [ ] Departure Time
   - [ ] Arrival Time
-  - [ ] Check if any filters are there at all and if not run it
-  - [ ] So first we need to && the filters
+  - [x] Check if any filters are there at all and if not run it
+  - [x] Next get 4 separate groups for each dropdown then uniq! the final array
+  - [x] Next make up all the queries for what we want to do
+  - [x] Finally we need to map the actual indexes the user chose that way we can actually retrieve the objects
+  - [ ] Test accuracy of each filter and debug if inaccurate
 
 # Models CLI Creation
 ```bash

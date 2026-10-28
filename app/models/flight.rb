@@ -107,13 +107,13 @@ class Flight < ApplicationRecord
 
   def self.arrival_time_filter(params)
     return [] if params[:arrival_time].nil?
-                 || params[:arrival_time].empty?
+                 || params[:arrival_time] == ""
     where(arrival_time: params[:arrival_time])
   end
 
   def self.departure_time_filter(params)
     return [] if params[:departure_time].nil?
-                  || params[:departure_time].empty?
+                  || params[:departure_time] == ""
     where(departure_time: params[:departure_time])
   end
 

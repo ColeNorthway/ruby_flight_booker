@@ -4,34 +4,7 @@
 + This requires relatively vanilla forms that happen to be prepopulated with collections of data.
 + Working with dates will cover a bit of new ground for you.
 
-- [x] Set up relations in database with migration cli commands
-- [x] Validate all uniq database entries and things that can be null
-- [x] Create an Airport model (which basically just needs an airport code like “SFO” or “NYC”) and use the db/seeds.rb file to create several airports.
-- [x] Create a Flight model (with the departure and arrival airport ids, start datetime and flight duration).
-- [x] Flesh out associations in models
-- [x] Flesh our required fields
-- [x] Seed your database with flights.
-- [x] Add a callback before save for flight that if the delay time is null make it 0
-- [x] Install bcrypt gem and hash ssn
-- [x] Add routes for flights
-- [x] Set up your FlightsController and routes to make the Index page (/flights) the root route.
-  - [x] Get the css right
-  - [x] Get the spacing right
-  - [x] Commit
-- [x] Figure out how to calculate delay as part of the arrival time
-- [x] Create your search form on the /flights index page to submit using a GET (not POST) request back to the same URL.
-- [ ] Add the four dropdown menus
-  - [ ] Dest
-  - [ ] Source
-  - [ ] Departure Time
-  - [ ] Arrival Time
-  - [x] Check if any filters are there at all and if not run it
-  - [x] Next get 4 separate groups for each dropdown then uniq! the final array
-  - [x] Next make up all the queries for what we want to do
-  - [x] Finally we need to map the actual indexes the user chose that way we can actually retrieve the objects
-  - [ ] Test accuracy of each filter and debug if inaccurate
-    - Ok first check the input present and all others not
-    - Next check others accuracy starting with city then the date
+- [ ] Set up button for selection on user
 
 # Models CLI Creation
 ```bash

@@ -125,6 +125,7 @@ class Flight < ApplicationRecord
           arr_y.include?(f)
         end
       end
+      acc
     end.uniq
   end
 end

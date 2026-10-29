@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # Session routes
   resource :session, only: [ :new, :create, :destroy ]
+  get "/new_password", to: "passengers#new_password"
+  put "/change_password", to: "passengers#change_password"
 
   # User routes
   resource :passenger, except: [ :show ]

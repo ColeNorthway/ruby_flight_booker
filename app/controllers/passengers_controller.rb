@@ -1,4 +1,6 @@
 class PassengersController < ApplicationController
+  skip_before_action :authenticate, only: [ :new, :create ]
+
   def new
     @passenger = Passenger.new
     @passenger.build_passenger_profile

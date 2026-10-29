@@ -1,4 +1,6 @@
 class FlightsController < ApplicationController
+  skip_before_action :authenticate
+
   def index
     @source_cities = Flight.all.map { |f|
       [ f.source_port.city, f.source_port.id ]

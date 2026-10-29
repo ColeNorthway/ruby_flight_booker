@@ -6,12 +6,15 @@
   + Flight object to map with the user
     + This is literally the flight that we already have loaded!
 
-- [ ] Set up button for selection on user
-  - [ ] If the user isn't logged in we hide the book button
-  - [ ] If the user isn't logged in we hide logout
-  - [ ] If the user isn't logged in we hide edit profile
-  - [ ] If the user isn't logged in we hide edit profile
-  - [ ] If the user isn't logged in we will display *login to book!*
+- [ ] Set up booking controller and routes
+  - [ ] Ok the routes include new, create, edit and delete
+    - Basically as we can add a flight and remove
+    - Not much else because a user cannot touch the flights themselves
+- [ ] Figure out the implementation
+    - [ ] If the user isn't logged in we hide the book button
+    - [ ] The booking button simply will just get user id
+    - [ ] Then it will get the flight obv
+    - [ ] 
 
 # Models CLI Creation
 ```bash

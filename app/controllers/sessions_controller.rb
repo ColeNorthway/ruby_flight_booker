@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate, only: [ :new, :create ]
+
   def new
   end
 
@@ -14,6 +16,7 @@ class SessionsController < ApplicationController
       redirect_to flights_path
     else
       flash.now[:error] = "Error: Wrong password, username or email"
+      render :new, status: :unauthorized
     end
   end
 

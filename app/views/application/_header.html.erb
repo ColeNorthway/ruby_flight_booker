@@ -2,6 +2,15 @@
   <h1>Flight Booker</h1>
   <%= link_to "Sign-Up", new_passenger_path %>
   <%= link_to "Log-In", new_session_path %>
-  <%= link_to "Edit Profile", edit_passenger_path %>
-  <%= button_to "Logout", session_path, method: 'delete', data: { turbo_confirm: 'Do you want to logout?' } %>
+
+  <% if @logged_in %>
+    <%= link_to "Edit Profile", edit_passenger_path %>
+    <%= button_to "Logout", session_path, method: 'delete', data: { turbo_confirm: 'Do you want to logout?' } %>
+  <% end %>
 </div>
+
+<% unless @logged_in %>
+  <div id="signup-message">
+    <h1>Login or Create an Account to Book Flights!!!</h1>
+  </div>
+<% end %>

@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 
   # User routes
   resource :passenger, except: [ :show ]
+
+  # Booking routes
+  resource :booking, only: [ :create, :destroy ]
 end

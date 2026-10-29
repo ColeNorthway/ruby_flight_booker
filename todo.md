@@ -7,14 +7,14 @@
     + This is literally the flight that we already have loaded!
 
 - [ ] Set up booking controller and routes
-  - [ ] Ok the routes include new, create, edit and delete
-    - Basically as we can add a flight and remove
-    - Not much else because a user cannot touch the flights themselves
+  - [x] Ok the routes include create and delete
 - [ ] Figure out the implementation
-    - [ ] If the user isn't logged in we hide the book button
-    - [ ] The booking button simply will just get user id
-    - [ ] Then it will get the flight obv
-    - [ ] 
+  - [ ] The booking create simply will just get user id
+  - [ ] Then it will get the flight via its id from a button
+- [ ] Get the showing of the buttons done
+  - [ ] If not booked the button will be for book
+  - [ ] If book the button will be for unbook
+  - [ ] If the user isn't logged in we hide the book and unbook buttons
 
 # Models CLI Creation
 ```bash

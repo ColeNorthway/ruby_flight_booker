@@ -14,6 +14,7 @@
   - [ ] We need to have an edit profile button
   - [ ] Put everything in a flexbox with the title
     - [ ] Push the title to the left and the buttons to the right
+  - [ ] Check to make sure ssn is encrypted
 - [ ] Set up button for selection on user
   - [ ] If the user isn't logged in we hide the book button
   - [ ] If the user isn't logged in we hide logout

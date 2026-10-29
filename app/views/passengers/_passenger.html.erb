@@ -1,4 +1,8 @@
 <%= form_with model: @passenger, url: passenger_path, method: @passenger.new_record? ? :post : :patch do |form| %>
+  Username: <%= form.text_field :username %><br>
+  Email: <%= form.email_field :username %><br>
+  Password: <%= form.password_field :password %><br>
+  Password: <%= form.password_field :password_confirmation %><br>
   <%= form.fields_for :passenger_profile do |profile_form| %>
     First Name: <%= profile_form.text_field :first_name%><br>
     Last Name: <%= profile_form.text_field :last_name%><br>

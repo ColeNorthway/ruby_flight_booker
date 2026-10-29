@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_29_003514) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_29_004524) do
   create_table "airports", force: :cascade do |t|
     t.string "city", null: false
     t.string "country", null: false
@@ -56,6 +56,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_003514) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest", null: false
+    t.string "username", null: false
+    t.string "email", null: false
+    t.index ["email"], name: "index_passengers_on_email", unique: true
+    t.index ["username"], name: "index_passengers_on_username", unique: true
   end
 
   add_foreign_key "flights", "airports", column: "destination_airport"

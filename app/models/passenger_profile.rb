@@ -7,7 +7,8 @@ class PassengerProfile < ApplicationRecord
 
   belongs_to :passenger
 
-  before_create do |profile|
+  before_save do |profile|
+    p "SSN: #{profile.ssn}"
     profile.ssn = BCrypt::Password.create(profile.ssn) unless profile.ssn.nil?
   end
 end

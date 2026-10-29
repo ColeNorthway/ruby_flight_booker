@@ -7,14 +7,14 @@
     + This is literally the flight that we already have loaded!
 
 - [ ] Set up basic authentication
-  - [ ] We need to get our password_digest and model configuration
-  - [ ] We need to have a sign in
-  - [ ] We need to have a log in
-  - [ ] We need to have a log out
+  - [x] We need to get our password_digest and model configuration
+  - [x] We need to have a sign in
+  - [x] We need to have a log in
+  - [x] We need to have a log out
   - [ ] We need to have an edit profile button
   - [ ] Put everything in a flexbox with the title
     - [ ] Push the title to the left and the buttons to the right
-  - [ ] Check to make sure ssn is encrypted
+  - [x] Check to make sure ssn is encrypted
 - [ ] Set up button for selection on user
   - [ ] If the user isn't logged in we hide the book button
   - [ ] If the user isn't logged in we hide logout

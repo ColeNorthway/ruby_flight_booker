@@ -1,14 +1,19 @@
 <%= form_with model: @passenger, url: passenger_path, method: @passenger.new_record? ? :post : :patch do |form| %>
-  Username: <%= form.text_field :username %><br>
-  Email: <%= form.email_field :username %><br>
-  Password: <%= form.password_field :password %><br>
-  Password: <%= form.password_field :password_confirmation %><br>
-  <%= form.fields_for :passenger_profile do |profile_form| %>
-    First Name: <%= profile_form.text_field :first_name%><br>
-    Last Name: <%= profile_form.text_field :last_name%><br>
-    Gender: <%= profile_form.radio_button :gender, "true", required: true%> <%# male %>
-      <%= profile_form.radio_button :gender, "false", required: false%><br> <%# female %>
-    Date of Birth: <%= profile_form.date_field :dob%><br>
-    Password: <%= profile_form.password_field :ssn%><br><br>
+  Username: <%= form.text_field :username, required: true %><br>
+  Email: <%= form.email_field :email, required: true %><br>
+
+  <% if @passenger.new_record? %>
+    Password: <%= form.password_field :password, required: true %><br>
+    Password Confirmation: <%= form.password_field :password_confirmation, required: true %><br>
   <% end %>
+
+  <%= form.fields_for :passenger_profile do |profile_form| %>
+    First Name: <%= profile_form.text_field :first_name, required: true %><br>
+    Last Name: <%= profile_form.text_field :last_name, required: true %><br>
+    Gender: M<%= profile_form.radio_button :gender, "true", required: true %> <%# male %>
+      F<%= profile_form.radio_button :gender, "false", required: false %><br> <%# female %>
+    Date of Birth: <%= profile_form.date_field :dob, required: true %><br>
+    SSN: <%= profile_form.password_field :ssn, required: true %><br>
+  <% end %>
+  <%= form.submit :Submit %><br><br>
 <% end %>

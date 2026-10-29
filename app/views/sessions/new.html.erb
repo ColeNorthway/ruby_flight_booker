@@ -1,2 +1,8 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= form_with url: "/session" do |form| %>
+  <%= form.text_field :username %><br>
+  <%= form.email_field :email %><br>
+  <%= form.password_field :password %><br>
+  <%= form.submit "Login" %><br><br>
+<% end %>
+
+<%= render partial: 'footer' %>

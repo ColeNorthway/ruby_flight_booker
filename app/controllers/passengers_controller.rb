@@ -1,24 +1,34 @@
 class PassengersController < ApplicationController
   def new
     @passenger = Passenger.new
+    @passenger.build_passenger_profile
   end
 
   def create
-    user = Passenger.new(passenger_params)
-    user.create_passenger_profile(PassengerProfile.new(passenger_profile_params))
-    if user.save
-      session[:user_id] = user.id
-      flash[:success] = "Welcome to Cole's Flights #{user.username}!"
+    @passenger = Passenger.build(passenger_params)
+    if @passenger.save
+      session[:passenger_id] = @passenger.id
+      flash[:success] = "Welcome to Cole's Flights #{@passenger.username}!"
       redirect_to flights_path
     else
+      @passenger.build_passenger_profile
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @passenger = Passenger.find_by(id: session[:passenger_id])
   end
 
   def update
+    @passenger = Passenger.find_by(id: session[:passenger_id])
+
+    if @passenger&.update(passenger_params)
+      flash[:success] = "Successfully updated user profile"
+      redirect_to flights_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -27,17 +37,9 @@ class PassengersController < ApplicationController
   private
 
   def passenger_params
-    params.expect(user: [ :username, :password, :email, :password_confirmation ])
-  end
-
-  def passenger_profile_params
-    unless params[:passenger_profile][:gender].nil?
-      if params[:passenger_profile][:gender] == "true"
-        params[:passenger_profile][:gender] = true
-      else
-        params[:passenger_profile][:gender] = false
-      end
-    end
-    params.expect(passenger_profile: [ :first_name, :last_name, :gender, :dob, :ssn ])
+    params.expect(passenger: [
+      :username, :password, :email, :password_confirmation, :password_challenge,
+      passenger_profile_attributes: [ :first_name, :last_name, :gender, :dob, :ssn ]
+    ])
   end
 end

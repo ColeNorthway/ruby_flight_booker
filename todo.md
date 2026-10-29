@@ -7,6 +7,7 @@
     + This is literally the flight that we already have loaded!
 
 - [ ] Set up basic authentication
+  - [ ] We need to get our password_digest and model configuration
   - [ ] We need to have a sign in
   - [ ] We need to have a log in
   - [ ] We need to have a log out

@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :flights, only: [ :index, :show ]
 
   # Session routes
-  resource :sessions, only: [ :new, :create, :destroy ]
+  resource :session, only: [ :new, :create, :destroy ]
 
   # User routes
-  resource :users, except: [ :show, :index  ]
+  resource :passenger, except: [ :show ]
 end

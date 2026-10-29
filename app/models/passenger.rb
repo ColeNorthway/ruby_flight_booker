@@ -1,4 +1,5 @@
 class Passenger < ApplicationRecord
+  has_secure_password
   validates_associated :passenger_profile, uniqueness: true, required: true
   validates_associated :flights
 

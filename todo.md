@@ -6,11 +6,11 @@
   + Flight object to map with the user
     + This is literally the flight that we already have loaded!
 
-- [ ] Set up booking controller and routes
+- [x] Set up booking controller and routes
   - [x] Ok the routes include create and delete
-- [ ] Figure out the implementation
-  - [ ] The booking create simply will just get user id
-  - [ ] Then it will get the flight via its id from a button
+- [x] Figure out the implementation
+  - [x] The booking create simply will just get user id
+  - [x] Then it will get the flight via its id from a button
 - [ ] Get the showing of the buttons done
   - [ ] If not booked the button will be for book
   - [ ] If book the button will be for unbook

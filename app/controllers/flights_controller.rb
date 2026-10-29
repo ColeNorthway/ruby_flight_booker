@@ -1,4 +1,5 @@
 class FlightsController < ApplicationController
+  before_action :users_flights
   skip_before_action :authenticate
 
   def index
@@ -60,6 +61,23 @@ class FlightsController < ApplicationController
     attrib_arr.reduce({}) do |map, a|
       map[a[index_index]] = a[attrib_index]
       map
+    end
+  end
+
+  def users_flights
+    return if unauth_empty_flights
+
+    user = Passenger.find_by(id: session[:passenger_id])
+    @users_flights = [] and return if user.nil?
+    @users_flights = user.flights
+  end
+
+  def unauth_empty_flights
+    if @logged_in
+      false
+    else
+      @users_flights = []
+      true
     end
   end
 end

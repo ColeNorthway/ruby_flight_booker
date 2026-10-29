@@ -9,10 +9,19 @@
 <p><span class="flight-key">Duration: </span><%= (flight.duration_minutes + flight.delay_time_minutes).fdiv(60).round(2) %>hr</p>
 <p><span class="flight-key">Delay Time Minutes: </span><%= flight.delay_time_minutes %>min</p>
 
-<% if params[:action] == 'index' %>
-  <%= link_to "Show", flight_path(flight.id) %>
-  <%# Put Booking Button Right HERE %>
-  <br><br>
-<% else %>
-  <br>
-<% end %>
+<div class="booking-div">
+  <% if @logged_in %>
+    <% if @users_flights.include?(flight) %>
+      <%= button_to "Unbook", '/booking', method: "delete", controller: "bookings", action: "destroy", params: { flight_id: flight.id } %>
+    <% else%>
+      <%= button_to "Book", method: "post", controller: "bookings", action: "create", params: { flight_id: flight.id } %>
+    <% end %>
+  <% end %>
+
+  <% if params[:action] == 'index' %>
+    <%= link_to "Show", flight_path(flight.id) %>
+  <% end %>
+</div>
+
+<br>
+
